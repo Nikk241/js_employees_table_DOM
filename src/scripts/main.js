@@ -87,7 +87,7 @@ function addFormInput(
 
   input.type = type;
   input.name = inputName;
-  input.setAttribute('data-qa', dataQa);
+  input.dataset.qa = dataQa;
   input.required = true;
 
   if (placeholder) {
@@ -115,9 +115,9 @@ function addFormSelect(form, selectName, dataQa, labelText) {
 
   const select = document.createElement('select');
 
-  select.required = true;
   select.name = selectName;
-  select.setAttribute('data-qa', dataQa);
+  select.dataset.qa = dataQa;
+  select.required = true;
 
   selectOptions.forEach((option) => {
     const opt = document.createElement('option');
@@ -158,7 +158,7 @@ function pushNotification(title, description, classType) {
   const notification = document.createElement('div');
 
   notification.classList.add('notification', classType);
-  notification.setAttribute('data-qa', 'notification');
+  notification.dataset.qa = 'notification';
 
   const titleEl = document.createElement('div');
   const descriptionEL = document.createElement('p');
@@ -189,12 +189,6 @@ dynamicForm.addEventListener('submit', (ev) => {
 
   if (employeeName.length < 4) {
     pushNotification('Error', 'Name should have at least 4 letters', 'error');
-
-    return;
-  }
-
-  if (!position || !employeeName || !office || !age || !salary) {
-    pushNotification('Warning', 'Fill the position field', 'warning');
 
     return;
   }
