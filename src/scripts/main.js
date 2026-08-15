@@ -88,7 +88,6 @@ function addFormInput(
   input.type = type;
   input.name = inputName;
   input.dataset.qa = dataQa;
-  input.required = true;
 
   if (placeholder) {
     input.placeholder = placeholder;
@@ -117,7 +116,6 @@ function addFormSelect(form, selectName, dataQa, labelText) {
 
   select.name = selectName;
   select.dataset.qa = dataQa;
-  select.required = true;
 
   selectOptions.forEach((option) => {
     const opt = document.createElement('option');
@@ -204,7 +202,6 @@ dynamicForm.addEventListener('submit', (ev) => {
 
     return;
   }
-
 
   //eslint-disable-line -- Add row to the table
 
