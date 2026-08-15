@@ -187,17 +187,24 @@ dynamicForm.addEventListener('submit', (ev) => {
   const age = Number(data.get('age'));
   const salary = Number(data.get('salary'));
 
+  if (!employeeName || !position || !office || !age || !salary) {
+    pushNotification('Error', 'You have to fill all inputs.', 'error');
+
+    return;
+  }
+
   if (employeeName.length < 4) {
-    pushNotification('Error', 'Name should have at least 4 letters', 'error');
+    pushNotification('Error', 'Name should have at least 4 letters.', 'error');
 
     return;
   }
 
   if (age < 18 || age > 90) {
-    pushNotification('Error', 'Age should be between 18 and 90', 'error');
+    pushNotification('Error', 'Age should be between 18 and 90.', 'error');
 
     return;
   }
+
 
   //eslint-disable-line -- Add row to the table
 
